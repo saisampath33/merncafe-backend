@@ -9,22 +9,12 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-// ✅ CORS Configuration
-const allowedOrigins = ['https://merncafe-frontend.vercel.app'];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
-}));
+app.use(
+  cors({
+    origin: "https://merncafe-frontend.vercel.app",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
