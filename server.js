@@ -8,15 +8,8 @@ import orderRouter from "./routes/orderRoute.js";
 
 dotenv.config();
 const app = express();
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://merncafe-frontend.vercel.app"
-];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 //
 
